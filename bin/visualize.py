@@ -47,7 +47,7 @@ def nn_visualize(layers, weights, biases, inputs, expected_output = None):
 
     img_array = np.zeros((WIN_HEIGHT, WIN_WIDTH, 3), dtype=np.uint8)
     img = Image.fromarray(img_array)
-    # img = img.resize((WIN_WIDTH, WIN_HEIGHT), Image.ANTIALIAS)
+    img = img.resize((WIN_WIDTH, WIN_HEIGHT), Image.ANTIALIAS)
     imdraw = ImageDraw.Draw(img)
     neuron_pos = [[]]
     x = padding_x
@@ -58,7 +58,6 @@ def nn_visualize(layers, weights, biases, inputs, expected_output = None):
         y = delta_y
         neuron_pos.append([])
         for neuron in range(0, layer):
-            # imdraw.ellipse([(x, y), (x+neuron_size, y+neuron_size)], (255, 255, 255))
             neuron_pos[inx].append(((2*x+neuron_size)//2, (2*y+neuron_size)//2))
             y += delta_y
             y += neuron_size
@@ -129,8 +128,8 @@ def nn_visualize(layers, weights, biases, inputs, expected_output = None):
                     imdraw.ellipse([(neuron[0]-neuron_size//2, neuron[1]-neuron_size//2), (neuron[0]+neuron_size//2, neuron[1]+neuron_size//2)], WHITE)
                 else:
                     imdraw.ellipse([(neuron[0]-neuron_size//2, neuron[1]-neuron_size//2), (neuron[0]+neuron_size//2, neuron[1]+neuron_size//2)], RED)
-    cv2.moveWindow('Neural Network', 940, 0)
     cv2.imshow("Neural Network", np.array(img))
+    cv2.moveWindow('Neural Network', 940, 0)
 
     # ? Rendering Matplotlib
     if DISPLAY_PLOT:
@@ -138,6 +137,7 @@ def nn_visualize(layers, weights, biases, inputs, expected_output = None):
 
     return neuron_bf
 
+# ! Debugging purpose
 # if __name__ == '__main__':
     # main_dir = os.path.dirname(os.getcwd())
     # model_dir = os.path.join(main_dir, 'model')

@@ -7,10 +7,15 @@ import matplotlib.pyplot as plt
 from environment import Bird, Environment, collision, WIN_HEIGHT
 from visualize import nn_visualize
 
-LIMIT_FRAME = False
+# ? HYPERPARAM
 
-SPEED_START = 30
-SPEED_END = 1000
+VISUALIZE_NN = True
+
+LIMIT_FRAME = True
+SPEED_START = 100
+SPEED_END = 100
+
+##################
 
 if __name__ == '__main__':
     main_dir = os.path.dirname(os.getcwd())
@@ -46,7 +51,8 @@ if __name__ == '__main__':
                 assert(front_pipe is not None)
                 nn_input = (bird.y, abs(front_pipe.upper_bottom-bird.y), abs(front_pipe.lower_up-bird.y))
                 output = model.activate(nn_input)
-                # out = nn_visualize(model_layers, model_weights, model_biases, nn_input, output)
+                if VISUALIZE_NN:
+                    out = nn_visualize(model_layers, model_weights, model_biases, nn_input, output)
                 if output[0] > 0.5:
                     bird.jump()
                 for pipe in env.pipes:
