@@ -45,3 +45,4 @@ In case you want to try it on your local machine
 - In the main.py, default best bird is still hard coded (I think I just deleted the .pickle files but still manage to stored those value, you can customize and make your own bird farm)
 - Using the above hard coded sample, I've never seen the bird fail
 - Game speed, visualization of the neural network can be customized in main.py hyperparam
+- Feel free to reach me in [discord](https://discordapp.com/users/745936749775028285/)
