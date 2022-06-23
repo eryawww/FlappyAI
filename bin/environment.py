@@ -14,7 +14,7 @@ DEBUG = True
 GAME_VEL = 7
 
 pygame.init()
-dir_img = 'D:/Code/Py/tensorflow/Genetic Algorithm/flappybird/img'
+dir_img = '../img/'
 win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 IMG_BASE = pygame.transform.scale2x(pygame.image.load(os.path.join(dir_img, 'base.png')).convert_alpha())
 IMG_BIRD = [pygame.transform.scale2x(pygame.image.load(os.path.join(dir_img, f'bird{x}.png'))) for x in range(1, 4)]
